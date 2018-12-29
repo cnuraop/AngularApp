@@ -8,7 +8,7 @@ import { map } from "rxjs/operators";
   selector: "countries-component",
   template: `
     <table align="center" border="1" cellpadding="5" cellspacing="0">
-      <thead style="background-color:yellow">
+      <thead>
         <tr>
           <th>Country</th>
           <th>Capital</th>
@@ -33,6 +33,15 @@ import { map } from "rxjs/operators";
       [infiniteScrollThrottle]="50"
       (scrolled)="onScroll()"
     ></div>
+
+    <style>
+      thead tr:nth-child(1) th {
+        background: yellow;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+    </style>
   `,
   providers: [CountriesService]
 })
